@@ -1,0 +1,7 @@
+# To run the project from the root directory run:
+
+ruby server.rb
+
+# or if you have rerun installed for easy restart on file change
+
+rerun server.rb

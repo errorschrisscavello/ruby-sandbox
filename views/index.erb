@@ -1,0 +1,21 @@
+<h2>Welcome to My Ruby Sandbox!</h2>
+<img id="ruby" src="/assets/images/ruby.png"/>
+<p id="instructions">Choose any of the above options to see Ruby code tests and such from various sources.</p>
+<p>Powered by:</p>
+<ul>
+	<%
+	[
+		{
+			:link => 'http://www.sinatrarb.com',
+			:title => 'Sinatra'
+		},
+		{
+			:link => 'https://code.google.com/p/google-code-prettify/',
+			:title => 'Google Code Prettify'
+		}
+
+	].each do |a|
+	%>
+	<li><a href="<%= a[:link] %>" target="_blank"><%= a[:title] %></a></li>
+	<% end %>
+</ul>

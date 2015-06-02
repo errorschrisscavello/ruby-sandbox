@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Ruby Sandbox</title>
+
+		<link rel="stylesheet" type="text/css" href="/assets/styles/normalize.css"/>
+		<link rel="stylesheet" type="text/css" href="/assets/styles/style.css"/>
+
+		<style type="text/css">
+			nav ul li{
+				width: <%= 100 / get_routes.size %>%;
+			}
+		</style>
+
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=sons-of-obsidian"></script>
+	</head>
+	<body>
+		<header>
+			<h1><a href="/">Ruby Sandbox</a></h1>
+			<nav class="clearfix">
+				<ul>
+					<%
+						routes = get_routes
+						routes.each do |a|
+					%>
+						<li>
+							<a href="<%= a %>"><%= a.gsub(/\//, '').capitalize %></a>
+						</li>
+					<% end %>
+				</ul>
+			</nav>
+		</header>
+		<section>
+			<%= yield %>
+		</section>
+		<footer class="clearfix">
+			<div class="right">
+				<h2 style="text-align: right;">Ruby Sandbox</h2>
+				<p>&copy; Ruby Sandbox <%= Time.now.year %></p>
+			</div>
+		</footer>
+	</body>
+</html>

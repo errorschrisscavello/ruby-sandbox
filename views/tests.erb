@@ -1,0 +1,126 @@
+<h2>Tests</h2>
+<hr/>
+
+<h3>Classes</h3>
+
+<p>Here are a few simple example classes using <code>attr_accessor</code></p>
+
+<p>1. Define the classes</p>
+
+<%= prettyprint(get_code('tests/classes.rb')) %>
+
+<p>2. Instantiate and assign values to the <code>Person</code> object's <code>name</code> attribute</p>
+
+<%
+p = Person.new
+p.name.first = 'Fred'
+p.name.last = 'Beans'
+p.name.full
+p.name.last_first
+%>
+
+<%= prettyprint("
+p = Person.new
+=> #{h(Person.new.inspect)}
+p.name.first = 'Fred'
+=> '#{p.name.first}'
+p.name.last = 'Beans'
+=> '#{p.name.last}'
+p.name.full
+=> '#{p.name.full}'
+p.name.last_first
+=> '#{p.name.last_first}'
+") %>
+
+<h3>Conditionals</h3>
+
+<p>Here is a function that outputs whether a given number <code>n</code> is lower, equal to, between, or higher than 2 other numbers <code>low</code> and <code>high</code></p>
+
+<p>1. Compare the numbers in order from low to high</p>
+
+<%= prettyprint(get_code('tests/conditionals.rb')) %>
+
+<p>2. Let's run a few tests...</p>
+
+<%= prettyprint("
+compare_numbers(1, 2, 3)
+=> '#{compare_numbers(1, 2, 3)}'
+compare_numbers(1234, 1234, 2345)
+=> '#{compare_numbers(1234, 1234, 2345)}'
+compare_numbers(12, 12, 13)
+=> '#{compare_numbers(12, 12, 13)}'
+compare_numbers(4, 3, 5)
+=> '#{compare_numbers(4, 3, 5)}'
+compare_numbers(77, 66, 77)
+=> '#{compare_numbers(77, 66, 77)}'
+compare_numbers(1234, 1, 100)
+=> '#{compare_numbers(1234, 1, 100)}'
+") %>
+
+<h3>Poor Ol' Deaf Granny</h3>
+
+<p>Here is a function that when run via the CLI does the following: </p>
+
+<ol>
+	<li>Asks <code>"What do you want to say to Granny dear?"</code></li>
+	<li>Gets user input</li>
+	<li>Responds with <code>"Huh?! Speak up, Granny can't hear ya sonny!"</code> if the input is not all caps</li>
+	<li>Responds with <code>"Nope, not since 1938!"</code> if the input is in caps but not the word <code>BYE</code></li>
+	<li>Says <code>"See ya later Deary!"</code> if the input is <code>BYE</code></li>
+</ol>
+
+<%= prettyprint(get_code('tests/deaf_grandma.rb')) %>
+
+<h3>Iteration</h3>
+
+<p>Here are multiple different ways to iterate over an array wrapped in a function</p>
+
+<%= prettyprint(get_code('tests/iteration.rb')) %>
+
+<p>And an example:</p>
+
+<% array = ['Larry', 'Curly', 'Moe', 'Ren', 'Stimpy', 'Bugs', 'Daffy'] %>
+
+<%= prettyprint("
+array = ['Larry', 'Curly', 'Moe', 'Ren', 'Stimpy', 'Bugs', 'Daffy']
+=> #{array.to_s}
+iteration(array)
+=> '#{iteration(array)}'
+") %>
+
+<h3>Math</h3>
+
+<p>Here are a few nifty math functions</p>
+<p>The first finds multiples of 1 or more numbers in a range of numbers</p>
+
+<%= prettyprint(get_code('tests/math.rb')) %>
+
+<p>Now let's get the multiples of <code>2</code> and <code>3</code> between <code>0</code> and <code>20</code></p>
+
+<%
+array = [2, 3]
+low = 0
+high = 20
+%>
+
+<%= prettyprint("
+array = [2, 3]
+low = 0
+high = 20
+find_multiples_of(array, low, high)
+=> #{find_multiples_of(array, low, high).to_s}
+") %>
+
+<p>The second function uses an extension of the <code>Fixnum</code> class to find fibonacci numbers under a given <code>limit</code></p>
+<p>The function will return the <code>:sum</code>, <code>:odd</code>, <code>:even</code>, and <code>:all</code> fibonacci numbers under the <code>limit</code></p>
+
+<% fibonaccis = fibs(100) %>
+
+<%= prettyprint("
+fibonaccis = fibs(100)
+=> #{fibonaccis.to_s}
+") %>
+
+
+
+
